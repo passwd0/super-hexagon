@@ -52,6 +52,10 @@ function updateScore(time, gameModel) {
 }
 
 function checkCollision(playerMesh, obstaclesMesh, gameModel) {
+    if (!gameModel.stopAtCollision) {
+        return;
+    }
+
     // Create an OBB for the triangle
     const triangleBox = new THREE.Box3().setFromObject(playerMesh);
     const triangleOBB = new OBB().fromBox3(triangleBox);

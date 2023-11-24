@@ -46,6 +46,8 @@ const gameModel = {
     scaleSpeed: scaleSpeed,
     currScale: 1,
     isScalingUp: true,
+
+    stopAtCollision: true,
 }
 
 const renderer = new THREE.WebGLRenderer( { antialias: true } );
@@ -76,8 +78,6 @@ audioLoader.load( soundtrack, function( buffer ) {
     sound.setBuffer( buffer );
     sound.setLoop( true );
     sound.setVolume( 0.5 );
-    if (!gameModel.isMuted)
-        sound.play();
 });
 
 const controls = new OrbitControls( camera, renderer.domElement );
@@ -121,10 +121,20 @@ function onDocumentKeyDown(event) {
 
     if (keyCode === 32) { //space
         gameModel.isPaused = !gameModel.isPaused;
+
+        if (gameModel.isPaused) {
+            sound.pause();
+        } else {
+            sound.play();
+        }
     }
 
     if (keyCode === 82) { //r
         camera.position.set(0, 0, cameraHeight);
+    }
+
+    if (keyCode === 83) { //s
+        gameModel.stopAtCollision = !gameModel.stopAtCollision;
     }
 }
 
