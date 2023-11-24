@@ -1,0 +1,16 @@
+{
+  "name": "super-hexagon3",
+  "version": "1.0.0",
+  "dependencies": {
+    "three": "^0.158.0"
+  },
+  "devDependencies": {
+    "vite": "^5.0.2"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "start": "vite preview",
+    "remote": "vite --host"
+  }
+}
