@@ -3,7 +3,7 @@
 This is a clone of the game Super Hexagon, made in Three.js.
 
 ### How to play
-move the little triangle to rotate the hexagon and avoid the walls.
+move the little triangle to avoid the walls.
 
 ### Controls
 - `Right Arrow` to rotate clockwise
